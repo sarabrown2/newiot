@@ -1,0 +1,27 @@
+{
+  "name": "iotdeviceprofiler-server",
+  "version": "1.0.0",
+  "description": "IOT Device Profiler Server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ldowers/project.git"
+  },
+  "author": "Sara Brown",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ldowers/project/issues"
+  },
+  "homepage": "https://github.com/ldowers/project#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.3",
+    "morgan": "^1.8.1"
+  }
+}
