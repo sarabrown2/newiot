@@ -3,9 +3,9 @@ var router = new express.Router();
 var Device = require ("../models/deviceModel.js");
 
 // Home page route
-router.get('/', function (req, res) {
-  res.send('IOT Device Profiler home page');
-});
+// router.get('/', function (req, res) {
+//   res.send('IOT Device Profiler home page');
+// });
 
 // Device routes
 router.get('/device', function (req, res) {

@@ -1,0 +1,10 @@
+.Navbar {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  background-color: tomato;
+  color: white;
+  text-align: right;
+}

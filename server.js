@@ -3,6 +3,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var path = require('path');
 
 // Mongoose mpromise deprecated - use bluebird promises
 var Promise = require("bluebird");
@@ -48,6 +49,11 @@ db.once("open", function() {
 // API Routes
 var apiRoutes = require('./server/routes/api');
 app.use('/api', apiRoutes);
+
+// All Other Routes
+app.get('/*', function (req, res) {
+   res.sendFile(path.join(__dirname, './client/build', 'index.html'));
+});
 
 // Start the server
 app.listen(PORT, () => {
