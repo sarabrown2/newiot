@@ -26,6 +26,10 @@ var DeviceSchema = new Schema({
     },
     accuracy: {
         type: Number
+    },
+    suspended: {
+        type: Boolean,
+        default: false
     }
 });
 
