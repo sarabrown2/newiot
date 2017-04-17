@@ -4,13 +4,19 @@ var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 var path = require('path');
+var DatabaseSeeder = require("./server/seed-data/seed");
 
 // Mongoose mpromise deprecated - use bluebird promises
 var Promise = require("bluebird");
 mongoose.Promise = Promise;
 
-// Require Device schema
+// Require Device and System schemas
 var Device = require("./server/models/deviceModel.js");
+var System = require("./server/models/systemModel.js");
+
+// Run database seeder
+var seeder = new DatabaseSeeder();
+seeder.runSeed();
 
 // Set Port
 var PORT = process.env.PORT || 3000;

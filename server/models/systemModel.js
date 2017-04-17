@@ -8,7 +8,8 @@ var SystemSchema = new Schema({
         default: false
     },
     filename: {
-        type: String
+        type: String,
+        default: null
     }
 });
 
