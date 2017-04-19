@@ -15,8 +15,8 @@ var Device = require("./server/models/deviceModel.js");
 var System = require("./server/models/systemModel.js");
 
 // Run database seeder
-var seeder = new DatabaseSeeder();
-seeder.runSeed();
+// var seeder = new DatabaseSeeder();
+DatabaseSeeder();
 
 // Set Port
 var PORT = process.env.PORT || 3000;

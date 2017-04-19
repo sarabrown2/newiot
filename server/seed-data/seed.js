@@ -1,7 +1,6 @@
 var System = require("../models/systemModel.js");
 
-class DatabaseSeeder {
-    runSeed() {
+var DatabaseSeeder = function () {
         var self = this;
         System.find({}).then(function(data) {
             if(data.length > 0){
@@ -14,7 +13,6 @@ class DatabaseSeeder {
                 filename: null
             });
         });
-    }
 }
 
 module.exports = DatabaseSeeder;
