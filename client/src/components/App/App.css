@@ -3,8 +3,11 @@
 }
 
 .App-logo {
+  margin-top: 10px;
+  trasnform-origin: center 65%;
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
+  margin-bottom: 10px;
 }
 
 .App-header {
