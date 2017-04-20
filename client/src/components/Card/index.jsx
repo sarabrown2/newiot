@@ -50,25 +50,48 @@ class Card extends Component {
     this.setState({ showModal: true });
   }
 
+  cardClass () {
+    if (this.state.cardColor === "yellow") {
+      return "Card Card--yellow";
+    } else if (this.state.cardColor === "red") {
+      return "Card Card--red";
+    }
+
+    return "Card";
+  }
+
+  modalClass () {
+    if (this.state.cardColor === "yellow") {
+      return "TheModal TheModal--yellow";
+    } else if (this.state.cardColor === "red") {
+      return "TheModal TheModal--red";
+    }
+
+    return "TheModal";
+  }
+
   render () {
     return (
-      <div className="Card" onClick={this._onClick}>
+      <div className={this.cardClass()} onClick={this._onClick}>
         <h3>{this.props.device.title}</h3>
         <p><span>Behavior Classification: </span>{this.props.device.behavior}</p>
         <p><span>Suspected Activity: </span>{this.state.suspectedActivity}</p>
         <p>Click for more info!</p>
 
         <Modal show={this.state.showModal} onHide={this.close}>
-          <ModalHeader closeButton>
-            <ModalTitle>{this.props.device.title}</ModalTitle>
-          </ModalHeader>
+
+          <div className={this.modalClass()}>
+            <ModalHeader closeButton>
+              <ModalTitle>{this.props.device.title}</ModalTitle>
+            </ModalHeader>
+          </div>
           <ModalBody>
-            <p><span>Behavior Classification: </span>{this.props.device.behavior}</p>
-            <p><span>Suspected Activity: </span>{this.state.suspectedActivity}</p>
-            <p><span>MAC Address: </span>{this.props.device.macAddress}</p>
-            <p><span>IP Address: </span>{this.props.device.ipAddress}</p>
-            <p><span>Behavior Accuracy: </span>{this.props.device.behaviorAccuracy}</p>
-            <p><span>Device Accuracy: </span>{this.props.device.deviceAccuracy}</p>
+              <p><span>Behavior Classification: </span>{this.props.device.behavior}</p>
+              <p><span>Suspected Activity: </span>{this.state.suspectedActivity}</p>
+              <p><span>MAC Address: </span>{this.props.device.macAddress}</p>
+              <p><span>IP Address: </span>{this.props.device.ipAddress}</p>
+              <p><span>Behavior Accuracy: </span>{this.props.device.behaviorAccuracy}</p>
+              <p><span>Device Accuracy: </span>{this.props.device.deviceAccuracy}</p>
           </ModalBody>
           <ModalFooter>
             <Button onClick={this.close}>Close</Button>

@@ -29,9 +29,8 @@ class AppLayout extends Component {
               <div className="row">
                 <h3>Sara Brown, Jacob Garman, Brandon Wallace</h3>
                 <h3>Sponsored by Sophos</h3>
-                <hr></hr>
               </div>
-              <div className="row">
+              <div className="row button-row">
                 <div className="col-sm-4">
                   <Button
                     bsStyle="success"
