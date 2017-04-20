@@ -7,12 +7,33 @@ class Card extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      showModal: false
+      showModal: false,
+      suspectedActivity: null,
+      cardColor: null
     };
 
     this._onClick = this._onClick.bind(this);
     this.close = this.close.bind(this);
     this.open = this.open.bind(this);
+  }
+
+  componentDidMount() {
+    switch (this.props.device.infected) {
+      case 0:
+        this.setState({suspectedActivity: "Safe"});
+        this.setState({cardColor: "green"});
+        break;
+      case 1:
+        this.setState({suspectedActivity: "Suspicious"});
+        this.setState({cardColor: "yellow"});
+        break;
+      case 2:
+        this.setState({suspectedActivity: "Infected"});
+        this.setState({cardColor: "red"});
+        break;
+      default:
+        this.setState({suspectedActivity: "Unknown"});
+    }
   }
 
   _onClick () {
@@ -34,7 +55,7 @@ class Card extends Component {
       <div className="Card" onClick={this._onClick}>
         <h3>{this.props.device.title}</h3>
         <p><span>Behavior Classification: </span>{this.props.device.behavior}</p>
-        <p><span>Suspected Activity: </span>{this.props.device.infected}</p>
+        <p><span>Suspected Activity: </span>{this.state.suspectedActivity}</p>
         <p>Click for more info!</p>
 
         <Modal show={this.state.showModal} onHide={this.close}>
@@ -43,13 +64,11 @@ class Card extends Component {
           </ModalHeader>
           <ModalBody>
             <p><span>Behavior Classification: </span>{this.props.device.behavior}</p>
-            <p><span>Suspected Activity: </span>{this.props.device.infected}</p>
-            <p><span>Mac Address: </span>{this.props.device.macAddress}</p>
+            <p><span>Suspected Activity: </span>{this.state.suspectedActivity}</p>
+            <p><span>MAC Address: </span>{this.props.device.macAddress}</p>
             <p><span>IP Address: </span>{this.props.device.ipAddress}</p>
-            <p><span>Malware Type: </span>{this.props.device.malType}</p>
-            <p><span>Malware Description: </span>{this.props.device.malDesc}</p>
-            <p><span>Accuracy: </span>{this.props.device.accuracy}</p>
-            <p><span>Suspended: </span>{this.props.device.suspended}</p>
+            <p><span>Behavior Accuracy: </span>{this.props.device.behaviorAccuracy}</p>
+            <p><span>Device Accuracy: </span>{this.props.device.deviceAccuracy}</p>
           </ModalBody>
           <ModalFooter>
             <Button onClick={this.close}>Close</Button>

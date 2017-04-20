@@ -22,7 +22,9 @@ class DevicesList extends Component {
             <div className="DeviceList">
                 <div className="Device-cards">
                     {this.props.devices.map(device => {
-                        return <DeviceListItem key={device._id} device={device}/>;
+                        if (device.suspended === false) {
+                            return <DeviceListItem key={device._id} device={device}/>;
+                        }
                     })}
                 </div>
             </div>

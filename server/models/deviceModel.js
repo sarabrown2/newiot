@@ -18,13 +18,10 @@ var DeviceSchema = new Schema({
     behavior: {
         type: String
     },
-    malType: {
-        type: String
+    behaviorAccuracy: {
+        type: Number
     },
-    malDesc: {
-        type: String
-    },
-    accuracy: {
+    deviceAccuracy: {
         type: Number
     },
     suspended: {
