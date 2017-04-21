@@ -20,7 +20,7 @@ export default class DeviceContainer extends Component {
                 return;
             }
             self.poll();
-            self.interval = setInterval(self.poll.bind(self), 15000);
+            self.interval = setInterval(self.poll.bind(self), 5000);
         });
     }
 
